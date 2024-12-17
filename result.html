@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Result</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Adventure!</h1>
+        <div id="result"></div>
+        <button onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const email = urlParams.get('email');
+        const selectedClass = urlParams.get('class');
+        const selectedRace = urlParams.get('race');
+
+        // Display the result
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `<p><strong>Username:</strong> ${username}</p>
+                               <p><strong>Email:</strong> ${email}</p>
+                               <p><strong>Class:</strong> ${selectedClass}</p>
+                               <p><strong>Race:</strong> ${selectedRace}</p>
+                               <p>Get ready for your adventure!</p>`;
+
+        // Function to go back to the signup page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
